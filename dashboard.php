@@ -2,9 +2,9 @@
 session_start();
 require_once 'db.php';
 
-// if(isset($_GET['user_id'])) {
-//     $user_id = $_GET['user_id'];
-// }
+if(isset($_GET['user_id'])) {
+    $user_id = $_GET['user_id'];
+}
 
 // $stmt = $db->prepare("SELECT * FROM Users WHERE user_id = :user_id");
 // $stmt->bindParam(':user_id', $user_id);
