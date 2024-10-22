@@ -1,0 +1,124 @@
+/* SIGN IN */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding: 0 15px;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.page h1 {
+  font-size: 4rem;
+  color: rgb(165, 53, 165);
+  margin-bottom: 10px;
+}
+
+.page p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+form input {
+  height: 55px;
+  width: 100%;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+form input:focus {
+  outline: none;
+  border-color: rgb(138, 39, 138);
+}
+
+::placeholder {
+  color: #777;
+  font-size: 1.063rem;
+}
+
+.login-link {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px;
+}
+
+.login-link button {
+  padding: 15px;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  background: rgb(138, 39, 138);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2 ease;
+  margin-top: 1rem;
+}
+
+.login-link .login-btn:hover {
+  background: rgb(138, 39, 125);
+}
+
+form a {
+  text-decoration: none;
+}
+
+.login-link .dha-acc {
+  color: black;
+  font-weight: 400;
+  font-size: 0.87rem;
+}
+
+.login-link span {
+  color: rgb(176, 50, 176);
+}
+
+.login-link span:hover {
+  text-decoration: underline;
+}
+
+/* SIGN UP CSS */
+
+label {
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+}
+
+.signup-title {
+  margin-bottom: 1rem;
+}
+
+.already-acc {
+  color: rgb(176, 50, 176);
+  font-weight: 400;
+  font-size: 0.87rem;
+}
+
+.already-acc:hover {
+  text-decoration: underline;
+}
