@@ -1,45 +1,45 @@
 /* DASHBOARD CSS */
 
-/* Reset some basic styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4; /* Light background for contrast */
+  background-color: #f4f4f4;
 }
 
-/* Header styles */
+/* Header */
 header {
-  background: #f4f4f4; /* Green background */
+  background: #f4f4f4;
   color: white;
-  padding: 1rem; /* Padding for header */
+  padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 nav {
   margin: 10px 15px;
   display: flex;
-  justify-content: space-between; /* Space between title and user email */
-  align-items: center; /* Center align items vertically */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title h1 {
   color: rgb(138, 39, 138);
 }
 
-/* Container styles */
+/* Container */
+
 .container {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space between form and table */
-  padding: 2rem; /* Padding around the container */
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
 }
 
-/* Tracker form styles */
+/* Form  */
 .tracker {
-  background: white; /* White background for form */
-  padding: 2rem; /* Padding inside form */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-  width: 40%; /* Width of the form */
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 30%;
 }
 
 form label {
@@ -48,66 +48,30 @@ form label {
 }
 
 /* Input styles */
+
+form input:focus {
+  outline: none;
+  border-color: rgb(138, 39, 138);
+}
+
 input[type="text"],
 input[type="number"],
 input[type="date"],
 select {
-  width: 100%; /* Full width for inputs */
-  padding: 0.5rem; /* Padding for inputs */
-  margin-bottom: 1rem; /* Space between inputs */
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 4px; /* Rounded corners */
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 /* Button styles */
 button {
   color: white;
-  border: none; /* Remove border */
-  padding: 0.5rem 1rem; /* Padding for button */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-}
-
-/* Table styles */
-.table {
-  flex: 1; /* Allow table to take remaining space */
-  margin-left: 2rem; /* Space between form and table */
-}
-
-table {
-  width: 100%; /* Full width table */
-  border-collapse: collapse; /* Collapse borders */
-}
-
-th,
-td {
-  border: 1px solid #ddd; /* Light gray border for cells */
-  padding: 0.8rem; /* Padding for cells */
-  text-align: left; /* Left align text */
-  font-size: 0.9rem;
-}
-
-th {
-  background-color: rgb(160, 47, 160); /* Header background color */
-  color: white; /* Header text color */
-  font-weight: 500;
-  font-size: 0.9rem;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2; /* Zebra striping for table rows */
-}
-
-/* Logout link styling */
-a {
-  display: block; /* Block display for logout link */
-  margin-top: 1rem; /* Space above link */
-  color: rgb(138, 39, 138); /* Link color */
-  text-decoration: none; /* Remove underline */
-}
-
-a:hover {
-  text-decoration: underline; /* Underline on hover */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn-action-container {
@@ -139,4 +103,44 @@ a:hover {
 
 .delete-btn:hover {
   background: rgb(190, 26, 16);
+}
+
+/* Table styles */
+.table {
+  flex: 1;
+  margin-left: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: rgb(160, 47, 160);
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Logout Link */
+a {
+  color: rgb(138, 39, 138);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
