@@ -2,20 +2,19 @@
 session_start();
 require_once 'db.php';
 
-if(isset($_GET['user_id'])) {
-    $user_id = $_GET['user_id'];
+if(!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    die();
 }
 
-// $stmt = $db->prepare("SELECT * FROM Users WHERE user_id = :user_id");
-// $stmt->bindParam(':user_id', $user_id);
+$user_id = $_SESSION['user_id'];
 
-// $stmt->execute();
+$stmt = $db->prepare("SELECT * FROM Users WHERE user_id = :user_id");
+$stmt->bindParam(':user_id', $user_id);
 
-// $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt->execute();
 
-// foreach($users as $user) {
-//     echo $user['username'];
-// }
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -28,9 +27,30 @@ if(isset($_GET['user_id'])) {
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="title">
+                <h1>Extrack</h1>
+            </div>
+            <div>
+                <p><?php echo $user['email'] ?></p>
+
+            </div>
+        </nav>
+    </header>
     <div class="container">
-        <h1>Welcome to dashboard</h1>
-        <a href="logout.php">Logout</a>
+        <!-- <div class="tracker">
+            <form action="">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+            </form>
+        </div>
+        <div class="contents">
+            <h1>Contents of the </h1>
+            <a href="logout.php">Logout</a>
+        </div> -->
 
     </div>
     

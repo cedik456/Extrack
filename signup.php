@@ -1,5 +1,5 @@
 <?php
-$db= new PDO('sqlite:/Applications/XAMPP/htdocs/pos/pos.sqlite');
+require_once 'db.php';
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -9,6 +9,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST['password'];
 
     try {
+        
+        $hashedPass = password_hash($password, PASSWORD_BCRYPT);
 
         $sql = "INSERT INTO Users(username,email,password) 
                 VALUES(:username, :email, :password);";
@@ -17,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":password", $hashedPass);
         
         if($stmt->execute()){
             // echo "<script>alert('Successful')</script>";

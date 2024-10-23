@@ -9,18 +9,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
 
         $sql = "SELECT * FROM Users WHERE email = :email;";
-
         $stmt = $db->prepare($sql);
 
-        $stmt->bindParam("email", $email);
+        $stmt->bindParam(":email", $email);
+      
         
-        if( $stmt->execute()) {
-            header("Location: dashboard.php");
+        if($stmt->execute()) {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($result && password_verify($password, $result["password"])) {
+
+                session_start();
+                $_SESSION['user_id'] = $result['user_id'];
+                header("Location: dashboard.php");
+
+            } else {
+                echo "<script>alert('Invalid email or password')</script>";
+            }
+
         } else {
-            echo "<script>alert('Error')</script>";
+            echo "<script>alert('Error query')</script>";
         }
         
-       
 
     } catch (PDOException $e) {
         die("Query Failed: " . $e->getMessage());
@@ -43,13 +53,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="container">
         <div class="page">
             <div class="text">
-                <h1>ExpTracker</h1>
+                <h1>Extrack</h1>
                 <p>Track your expenses and finances with efficiency,</p>
                 <p>Like no other than before</p>
             </div>
             <form action="" method="POST">
-                <input type="text" name="email" placeholder="Email or phone number" autocomplete="off">
-                <input type="password" name="password" placeholder="Password" autocomplete="off">
+                <input type="text" name="email" placeholder="Email or phone number" autocomplete="off" required>
+                <input type="password" name="password" placeholder="Password" autocomplete="off" required>
                 <div class="login-link">
                   <button type="submit">Login</button>
                   <p><a href="signup.php" class="dha-acc">Don't have an account? <span>Sign up now</span></a></p>
