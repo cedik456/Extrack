@@ -22,31 +22,36 @@ try{
     //             FOREIGN KEY (user_id_fk) REFERENCES Users(user_id) ON DELETE CASCADE
     //             )");
 
-    print "<table border=1>";
 
-    print "<tr>
-          <td>ID</td>  
-          <td>Name</td>  
-          <td>Email</td>  
-          <td>Password</td>  
+    echo "<table border=1>";
+
+    echo "<tr>
+          <td>User Id</td>  
+          <td>Expenses Id</td>  
+          <td>Description</td>  
+          <td>Amount</td>  
+          <td>Date</td>  
+          <td>Category</td>  
            
           </tr>";
 
-    $result = $db->query('SELECT * FROM Users');
+    $result = $db->query('SELECT * FROM Expenses');
 
     foreach($result as $row) {
         
         
-        print "<td>".$row['user_id']."</td>";
-        print "<td>".$row['username']."</td>";
-        print "<td>".$row['email']."</td>";
-        print "<td>".$row['password']."</td></tr>";
+        echo "<td>".$row['user_id_fk']."</td>";
+        echo "<td>".$row['expenses_id']."</td>";
+        echo "<td>".$row['description']."</td>";
+        echo "<td>".$row['amount']."</td>";
+        echo "<td>".$row['expense_date']."</td>";
+        echo "<td>".$row['category']."</td></tr>";
     };
 
-    print "</table>";
+    echo "</table>";
 
 }catch(PDOException $e) {
-    echo $e->getMessage();
+    die("Query Failed: " . $e->getMessage());
 }
 
 ?>

@@ -85,7 +85,10 @@ $expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td>
                             <div class="btn-action-container">
                                 <button class="edit-btn">Edit</button>
-                                <button class="delete-btn">Delete</button>
+                                <form action="delete_expenses.php" method="GET">
+                                <input type="hidden" name="expenses_id" value="<?php echo htmlspecialchars($expense['expenses_id']); ?>">
+                                <button type="submit" onclick="return confirm('Are you sure you want to remove this?');" class="delete-btn">Delete</button>                          
+                                </form>
                             </div>
                         </td>
                         
@@ -100,6 +103,7 @@ $expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </table>
         </div>
     </div>
+
     
 </body>
 </html>
