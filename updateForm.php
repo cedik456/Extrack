@@ -15,7 +15,9 @@ try {
 
         $expenses_id = $_GET['expenses_id'];
 
-        $stmt = $db->prepare("SELECT * FROM Expenses WHERE user_id_fk = :user_id AND expenses_id = :expenses_id");
+        $sql = "SELECT * FROM Expenses WHERE user_id_fk = :user_id AND expenses_id = :expenses_id";
+
+        $stmt = $db->prepare($sql);
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':expenses_id', $expenses_id);
     

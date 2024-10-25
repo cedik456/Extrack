@@ -9,7 +9,9 @@ if(!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-$stmt = $db->prepare("SELECT * FROM Expenses WHERE user_id_fk = :user_id");
+$sql = "SELECT * FROM Expenses WHERE user_id_fk = :user_id";
+
+$stmt = $db->prepare($sql);
 $stmt->bindParam(':user_id', $user_id);
 
 $stmt->execute();
@@ -96,7 +98,7 @@ $expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="4">No expenses found.</td>
+                    <td colspan="5">No expenses found.</td>
                 </tr>
             <?php endif; ?>
         </tbody>

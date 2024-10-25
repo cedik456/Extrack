@@ -12,7 +12,9 @@ if(isset($_GET['expenses_id'])) {
 
     try {
 
-        $stmt = $db->prepare("DELETE FROM Expenses WHERE expenses_id = :expenses_id AND user_id_fk = :user_id");
+        $sql = "DELETE FROM Expenses WHERE expenses_id = :expenses_id AND user_id_fk = :user_id";
+
+        $stmt = $db->prepare($sql);
         $stmt->bindParam(':expenses_id', $expenses_id);
         $stmt->bindParam(':user_id', $_SESSION['user_id']);
     

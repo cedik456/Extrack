@@ -148,7 +148,7 @@ tr:nth-child(even) {
   text-decoration: none;
 }
 
-a:hover {
+.logout a:hover {
   text-decoration: underline;
 }
 

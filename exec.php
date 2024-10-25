@@ -27,25 +27,24 @@ try{
 
     echo "<tr>
           <td>User Id</td>  
-          <td>Expenses Id</td>  
-          <td>Description</td>  
-          <td>Amount</td>  
-          <td>Date</td>  
-          <td>Category</td>  
+          <td>Username</td>  
+          <td>Email</td>  
+          <td>Password</td>  
            
           </tr>";
 
-    $result = $db->query('SELECT * FROM Expenses');
+    $result = $db->query('SELECT * FROM Users');
 
     foreach($result as $row) {
         
         
-        echo "<td>".$row['user_id_fk']."</td>";
-        echo "<td>".$row['expenses_id']."</td>";
-        echo "<td>".$row['description']."</td>";
-        echo "<td>".$row['amount']."</td>";
-        echo "<td>".$row['expense_date']."</td>";
-        echo "<td>".$row['category']."</td></tr>";
+        echo "<td>".$row['user_id']."</td>";
+        echo "<td>".$row['username']."</td>";
+        echo "<td>".$row['email']."</td>";
+        echo "<td>".$row['password']."</td> </tr>";
+        // echo "<td>".$row['amount']."</td>";
+        // echo "<td>".$row['expense_date']."</td>";
+        // echo "<td>".$row['category']."</td></tr>";
     };
 
     echo "</table>";

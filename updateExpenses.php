@@ -20,12 +20,14 @@ try {
        $expense_date = $_POST['expense_date'];
        $category = $_POST['category'];
 
-       $stmt = $db->prepare("UPDATE Expenses SET description = :description,
+       $sql = "UPDATE Expenses SET description = :description,
                                                  amount = :amount,
                                                  expense_date = :expense_date,
                                                  category = :category
                                                  WHERE expenses_id = :expenses_id
-                                                 AND user_id_fk = :user_id");
+                                                 AND user_id_fk = :user_id";
+
+       $stmt = $db->prepare($sql);
    
        $stmt->bindParam(':description', $description);
        $stmt->bindParam(':amount', $amount);

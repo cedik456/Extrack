@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         
         if($stmt->execute()){
             header("Location: dashboard.php");
-            echo "<script>alert('Added Expenses Successfully')</script>";
+            echo "<script>alert('Added Expenses Successfully');</script>";
         } else
             echo "<script>Error</script>";
 
