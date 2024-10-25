@@ -33,15 +33,15 @@ $expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="title">
                 <h1>Extrack</h1>
             </div>
-            <div>
-            <a href="logout.php">Logout</a>
+            <div class="logout">
+            <a href="logout.php" onclick="return confirm('Are you sure you want to logout?');">Logout</a>
             </div>
         </nav>
     </header>
     <div class="container">
 
         <div class="tracker">
-            <form action="add_expenses.php" method="POST">
+            <form action="addExpenses.php" method="POST">
                 <label for="description">Description:</label>
                 <input type="text" name="description" id="description" required>
 
@@ -84,10 +84,10 @@ $expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo htmlspecialchars($expense['category']); ?></td>
                         <td>
                             <div class="btn-action-container">
-                                <button class="edit-btn">Edit</button>
-                                <form action="delete_expenses.php" method="GET">
+                            <button class="edit-btn"><a href="updateForm.php?expenses_id=<?= $expense['expenses_id']; ?>">Edit</a></button>
+                                <form action="deleteExpenses.php" method="GET">
                                 <input type="hidden" name="expenses_id" value="<?php echo htmlspecialchars($expense['expenses_id']); ?>">
-                                <button type="submit" onclick="return confirm('Are you sure you want to remove this?');" class="delete-btn">Delete</button>                          
+                                <button type="submit" onclick="return confirm('Are you sure you want to delete this?');" class="delete-btn">Delete</button>                          
                                 </form>
                             </div>
                         </td>

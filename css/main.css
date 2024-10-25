@@ -90,6 +90,11 @@ button {
   background: rgb(28, 155, 102);
 }
 
+.edit-btn a {
+  color: white;
+  text-decoration: none;
+}
+
 .delete-btn {
   background: rgb(190, 26, 26);
   padding-left: 1rem;
@@ -138,11 +143,38 @@ tr:nth-child(even) {
 }
 
 /* Logout Link */
-a {
+.logout a {
   color: rgb(138, 39, 138);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+/* UPDATE */
+
+/* CLOSE MARK */
+
+.update-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.close-mark a {
+  margin-left: 98%;
+  font-size: 1rem;
+  color: black;
+  text-decoration: none;
+}
+
+.update-btn {
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: rgb(138, 39, 138);
 }
